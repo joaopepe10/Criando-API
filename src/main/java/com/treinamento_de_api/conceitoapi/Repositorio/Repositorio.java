@@ -2,20 +2,24 @@ package com.treinamento_de_api.conceitoapi.Repositorio;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.treinamento_de_api.conceitoapi.Modelo.Pessoa;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Repository
-public interface Repositorio extends CrudRepository<Pessoa, Integer>{
+public interface Repositorio extends CrudRepository<Pessoa, Integer> {
 
     //LISTA TODAS AS PESSOAS SALVAS
     @Override
     List<Pessoa> findAll();
 
     List<Pessoa> findByOrderByNome();
+
     List<Pessoa> findByOrderByCodigo();
+
     List<Pessoa> findByOrderByIdade();
 
     //FILTRA DE ACORDO COM O NUMERO DO CODIGO PASSADO
@@ -29,4 +33,11 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer>{
 
     //FILTRA DE ACORDO SE TERMINA OU NAO COM DETERMINADO TERMO
     List<Pessoa> findByNomeEndsWith(String termoFinal);
+
+    @Query(value = "SELECT nome FROM pessoas where idade = 23", nativeQuery = true)
+    String totalIdade();
+
+    @Query(value = "SELECT idade FROM pessoas where idade = 23", nativeQuery = true)
+    int teste();
+
 }

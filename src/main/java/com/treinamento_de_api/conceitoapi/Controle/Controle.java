@@ -99,6 +99,15 @@ public class Controle {
         return acao.findByNomeEndsWith(fim);
     }
 
+    @GetMapping("/total")
+    public String totalIdade(){
+        return acao.totalIdade();
+    }
+    @GetMapping("/teste")
+    public int teste(){
+        return acao.teste();
+    }
+
     //CRIA UMA ROTA VAZIA
     @GetMapping("")
     public String msg(){
