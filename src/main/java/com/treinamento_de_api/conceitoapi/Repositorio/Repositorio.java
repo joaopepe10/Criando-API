@@ -37,7 +37,7 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
     @Query(value = "SELECT nome FROM pessoas where idade = 23", nativeQuery = true)
     String totalIdade();
 
-    @Query(value = "SELECT idade FROM pessoas where idade = 23", nativeQuery = true)
-    int teste();
+    @Query(value = "SELECT nome as 'Idade maior que 23' FROM pessoas where idade >= 23", nativeQuery = true)
+    List<String> teste();
 
 }

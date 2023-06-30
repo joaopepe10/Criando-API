@@ -104,7 +104,7 @@ public class Controle {
         return acao.totalIdade();
     }
     @GetMapping("/teste")
-    public int teste(){
+    public List<String> teste(){
         return acao.teste();
     }
 
