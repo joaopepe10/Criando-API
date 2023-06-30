@@ -90,6 +90,15 @@ public class Controle {
         return acao.findByNomeContaining(termo);
     }
 
+    @GetMapping("/termoInicio/{inicio}")
+    public List<Pessoa> nomeInicio(@PathVariable String inicio){
+        return acao.findByNomeStartsWith(inicio);
+    }
+    @GetMapping("/termoFim/{fim}")
+    public List<Pessoa> nomeFim(@PathVariable String fim){
+        return acao.findByNomeEndsWith(fim);
+    }
+
     //CRIA UMA ROTA VAZIA
     @GetMapping("")
     public String msg(){

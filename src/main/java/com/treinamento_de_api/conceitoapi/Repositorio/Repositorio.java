@@ -23,4 +23,10 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer>{
 
     //FILTRA A BUSCA DE ACORDO COM UMA UNICA LETRA OU UM CONJUNTO DE CARACTER
     List<Pessoa> findByNomeContaining(String termo);
+
+    //FILTRA DE ACORDO SE COMECA OU NAO COM DETERMINADO TERMO
+    List<Pessoa> findByNomeStartsWith(String termoInicio);
+
+    //FILTRA DE ACORDO SE TERMINA OU NAO COM DETERMINADO TERMO
+    List<Pessoa> findByNomeEndsWith(String termoFinal);
 }
