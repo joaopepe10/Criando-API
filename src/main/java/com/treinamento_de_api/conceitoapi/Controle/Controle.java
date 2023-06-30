@@ -84,10 +84,10 @@ public class Controle {
         }
         return inf;
     }
-
-    @GetMapping("/contem")
-    public List<Pessoa> nomeContem(){
-        return acao.findByNomeContaining("J");
+    //FAZ A VERIFICACAO SE CONTEM DETERMINADO CARACTER OU CONJUNTO DE CARACTER
+    @GetMapping("/contem/{termo}")
+    public List<Pessoa> nomeContem(@PathVariable String termo){
+        return acao.findByNomeContaining(termo);
     }
 
     //CRIA UMA ROTA VAZIA
