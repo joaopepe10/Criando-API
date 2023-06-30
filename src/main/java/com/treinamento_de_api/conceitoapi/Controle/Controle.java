@@ -108,6 +108,11 @@ public class Controle {
         return acao.teste();
     }
 
+    @GetMapping("/idade/{idade}")
+    public List<Pessoa> idade(@PathVariable int idade){
+        return acao.idadeMaior(idade);
+    }
+
     //CRIA UMA ROTA VAZIA
     @GetMapping("")
     public String msg(){
