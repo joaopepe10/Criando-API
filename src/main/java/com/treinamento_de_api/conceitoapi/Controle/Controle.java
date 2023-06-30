@@ -3,7 +3,9 @@ package com.treinamento_de_api.conceitoapi.Controle;
 
 import java.util.List;
 
+import com.treinamento_de_api.conceitoapi.Servico.Servico;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,12 +24,15 @@ public class Controle {
     @Autowired
     private Repositorio acao;
 
+    @Autowired
+    private Servico servico;
+
     //METODOS
 
     //CADASTRO DE PESSOAS ATRAVES DA REFERENCIA CRIADA PELO REPOSITORIO DE PESSOAS
     @PostMapping("/cadastrar")
-    public Pessoa cadastrarPessoa(@RequestBody Pessoa p){
-        return acao.save(p);
+    public ResponseEntity<?> cadastrarPessoa(@RequestBody Pessoa p){
+        return servico.cadastrar(p);
     }
 
     //METODO PARA LISTAR TODA A TABELA
