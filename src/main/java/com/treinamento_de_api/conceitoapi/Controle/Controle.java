@@ -85,6 +85,11 @@ public class Controle {
         return inf;
     }
 
+    @GetMapping("/contem")
+    public List<Pessoa> nomeContem(){
+        return acao.findByNomeContaining("J");
+    }
+
     //CRIA UMA ROTA VAZIA
     @GetMapping("")
     public String msg(){
